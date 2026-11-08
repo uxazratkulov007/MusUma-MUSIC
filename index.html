@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MusUma — Musiqa</title>
+    <meta
+      name="description"
+      content="MusUma — tinglang, kashf eting, o'zingizning ritmingizni toping."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
+    <header class="topbar">
+      <a class="logo" href="#top" aria-label="MusUma bosh sahifa">MusUma</a>
+      <nav class="nav" aria-label="Asosiy">
+        <a href="#listen">Tinglash</a>
+        <a href="#discover">Kashf</a>
+        <a href="#about">Haqida</a>
+      </nav>
+      <a class="btn-ghost" href="#listen">Kutubxona</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="MusUma">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="assets/covers/hero.jpg"
+            alt=""
+            width="1600"
+            height="1067"
+          />
+          <div class="hero-veil"></div>
+        </div>
+        <div class="hero-copy">
+          <p class="brand">MusUma</p>
+          <h1>Ritmingizni oching.</h1>
+          <p class="lede">
+            Yangi ovozlar, jonli beatlar va siz uchun tanlangan treklar — bitta
+            joyda.
+          </p>
+          <div class="cta-row">
+            <a class="btn-primary" href="#listen">Tinglashni boshlash</a>
+            <button class="btn-text" type="button" id="playFeatured">
+              Featured trek
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section listen" id="listen">
+        <div class="section-head">
+          <h2>Hozir tinglang</h2>
+          <p>Tanlang va darhol ijro eting.</p>
+          <label class="search-field" for="searchInput">
+            <span class="sr-only">Trek qidirish</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Ijrochi, trek yoki janr..."
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Janr">
+          <button class="filter is-active" type="button" data-genre="all" role="tab" aria-selected="true">
+            Hammasi
+          </button>
+          <button class="filter" type="button" data-genre="pop" role="tab" aria-selected="false">
+            Pop
+          </button>
+          <button class="filter" type="button" data-genre="electronic" role="tab" aria-selected="false">
+            Electronic
+          </button>
+          <button class="filter" type="button" data-genre="lofi" role="tab" aria-selected="false">
+            Lo-fi
+          </button>
+          <button class="filter" type="button" data-genre="hiphop" role="tab" aria-selected="false">
+            Hip-hop
+          </button>
+        </div>
+
+        <ul class="tracklist" id="tracklist" aria-live="polite"></ul>
+      </section>
+
+      <section class="section discover" id="discover">
+        <div class="section-head">
+          <h2>Kashf eting</h2>
+          <p>Har kuni yangi kayfiyat.</p>
+        </div>
+        <div class="mood-rail" id="moodRail"></div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="about-grid">
+          <div>
+            <p class="eyebrow">MusUma</p>
+            <h2>Musiqa — shaxsiy sayohat.</h2>
+          </div>
+          <p class="about-copy">
+            MusUma sizga tinglashni sodda qiladi: oching, tanlang, davom eting.
+            Hech qanday chalkash menyu yo‘q — faqat ovoz va kayfiyat.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="logo">MusUma</span>
+      <p>© <span id="year"></span> MusUma. Tinglang va baham ko‘ring.</p>
+    </footer>
+
+    <div class="player" id="player" data-empty="true">
+      <div class="player-art" aria-hidden="true">
+        <img id="playerCover" src="" alt="" />
+      </div>
+      <div class="player-meta">
+        <p class="player-title" id="playerTitle">Trek tanlanmagan</p>
+        <p class="player-artist" id="playerArtist">MusUma</p>
+      </div>
+      <div class="player-controls">
+        <button type="button" id="prevBtn" aria-label="Oldingi">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6 8.5 6V6l-8.5 6z"/></svg>
+        </button>
+        <button type="button" class="play-main" id="playBtn" aria-label="Ijro">
+          <svg class="icon-play" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7L8 5z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+        </button>
+        <button type="button" id="nextBtn" aria-label="Keyingi">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M16 6h2v12h-2V6zM6 18l8.5-6L6 6v12z"/></svg>
+        </button>
+      </div>
+      <div class="player-progress">
+        <span id="currentTime">0:00</span>
+        <input id="seek" type="range" min="0" max="100" value="0" aria-label="Progress" />
+        <span id="duration">0:00</span>
+      </div>
+      <audio id="audio" preload="metadata" playsinline></audio>
+    </div>
+
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

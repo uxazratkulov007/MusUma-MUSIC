@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MusUma">
+  <rect width="64" height="64" fill="#0B6E4F"/>
+  <path d="M18 42V22l20-4v20" fill="none" stroke="#F4F7F5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="44" r="5" fill="#FF4D2E"/>
+  <circle cx="38" cy="40" r="5" fill="#FF4D2E"/>
+</svg>
